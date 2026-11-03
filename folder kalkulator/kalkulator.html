@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Razka Wakhidiansyah | Beranda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/folder kalkulator/kalkulator.css">
+</head>
+<body>
+    <header>
+    <div class="container navbar">
+      <h1>Razka Wakhidiansyah</h1>
+      <nav class="menu-laptop">
+        <ul>
+          <li><a href="/index.html">Beranda</a></li>
+          <li><a href="/proyek.html">Proyek</a></li>
+          <li><a href="/kontak.html">Kontak</a></li>
+          <li><a href="/folder kalkulator/kalkulator.html">Kalkulator</a></li>
+        </ul>
+      </nav>
+      <!-- Tantangan: menu ponsel yang bisa dibuka-tutup -->
+      <details class="menu-ponsel">
+        <summary>Menu</summary>
+        <nav>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="proyek.html">Proyek</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+          </ul>
+        </nav>
+      </details>
+    </div>
+  </header>
+
+  <section class="sectionkalkulator">
+    <div class="kotak-kalkulator">
+      <h1 class="kalkulatorh1">Kalkulator</h1>
+      <p class="pkalkulator">Digunakan untuk menghitung nilai rata rata. Nilai Tugas, UTS, UAS
+      </p>
+      <div class="nilaitugas">
+        <h2>
+          Nilai Tugas
+        </h2>
+        <input type="number" min="0" max="100" placeholder="Input nilai" step="1" class="input1">
+      </div>
+
+      <div class="nilaiuts">
+        <h2>
+          Nilai UTS
+        </h2>
+        <input type="number" min="0" max="100" placeholder="Input nilai" step="1" class="input2">
+      </div>
+
+      <div class="nilaiuas">
+        <h2>
+          Nilai UAS
+        </h2>
+        <input type="number" min="0" max="100" placeholder="Input nilai" step="1" class="input3">
+      </div>
+
+      <button class="button-hasil"><h3 class="h3-button">Hasil</h3></button>
+
+      <h2 id="output"></h2>
+    </div>
+  </section>
+
+<script src="kalkulator.js" defer></script>
+</body>
+</html>
