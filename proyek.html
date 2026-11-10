@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Andi Pratama | Proyek</title>
+    <title>Razka Wakhidiansyah | Proyek</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,6 +21,7 @@
             <li><a href="index.html">Beranda</a></li>
             <li><a href="proyek.html">Proyek</a></li>
             <li><a href="kontak.html">Kontak</a></li>
+            <li><a href="/folder kalkulator/kalkulator.html">Kalkulator</a></li>
           </ul>
         </nav>
         <button type="button" id="tombol-tema" class="tombol-tema">
@@ -34,10 +35,8 @@
               <li><a href="index.html">Beranda</a></li>
               <li><a href="proyek.html">Proyek</a></li>
               <li><a href="kontak.html">Kontak</a></li>
-              <li>
-                <a href="/folder kalkulator/kalkulator.html">Kalkulator</a>
-              </li>
-              li>
+              <li><a href="/folder kalkulator/kalkulator.html">Kalkulator</a></li>
+
             </ul>
           </nav>
         </details>
@@ -46,61 +45,28 @@
 
     <main>
       <div class="container">
-        <section>
-          <h2>Proyek Saya</h2>
-          <p>Kumpulan hasil belajar saya di Kelas Industri UBIG.</p>
+        <div class="filter">
 
-          <div class="daftar-kartu">
-            <article class="kartu">
-              <h3>Halaman Profil Pertama</h3>
-              <img
-                src="img/proyek-profile.png"
-                alt="Tangkapan layar halaman profil Andi Pratama"
-                width="280"
-              />
-              <p>
-                Halaman web pertama saya, berisi perkenalan, foto, hobi,
-                cita-cita, keahlian, dan kontak. Dibuat dengan HTML dasar di
-                Minggu 01.
-              </p>
-            </article>
+    <button type="button" class="tombol-filter active" id="filter-semua">Semua</button>
 
-            <article class="kartu">
-              <h3>Form Kontak</h3>
-              <img
-                src="img/formkontak.png"
-                alt="Tangkapan layar form kontak berisi nama, email, nomor HP, keperluan, dan pesan"
-                width="280"
-              />
-              <p>
-                Form untuk menghubungi saya. Setiap isian memiliki label dan
-                wajib diisi, sehingga browser menolak form yang masih kosong.
-              </p>
-            </article>
+    <button type="button" class="tombol-filter active" id="filter-html">HTML</button>
+    
+    <button type="button" class="tombol-filter active" id="filter-css">CSS</button>
 
-            <article class="kartu">
-              <h3>Tabel Jadwal Belajar</h3>
-              <img
-                src="img/proyekjadwal.png"
-                alt="Tangkapan layar tabel jadwal belajar mandiri"
-                width="280"
-              />
-              <p>
-                Tabel berisi jadwal belajar mandiri saya setiap minggu, disusun
-                dengan thead dan tbody.
-              </p>
-            </article>
-          </div>
-        </section>
+    <button type="button" class="tombol-filter active" id="filter-javascript">JavaScript</button>
 
+
+  </div>
+<p id="jumlah-proyek"></p>
+<div class="daftar-kartu" id="daftar-proyek"></div>
         <!-- FAQ dengan details dan summary -->
         <section class="kartu">
           <h2>Pertanyaan yang Sering Diajukan</h2>
           <details>
             <summary>Bahasa apa yang dipakai untuk membuat proyek ini?</summary>
             <p>
-              Semua proyek di halaman ini dibuat dengan HTML. Tampilannya akan
-              saya rapikan dengan CSS mulai Minggu 03.
+             <p>Proyek di halaman ini dibuat dengan HTML, CSS, dan JavaScript.
+                Pilih tombol kategori di atas untuk melihat proyek per bahasa.</p>
             </p>
           </details>
           <details>
