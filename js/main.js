@@ -205,24 +205,23 @@ tombolfilteraktif.forEach(tombol => {
 });
 
 
+
 // 5
 const username = "Razkarpl";
 const alamatRepo = `https://api.github.com/users/${username}/repos`;
 const pilihan = "?sort=updated&per_page=6";
 
-const daftarRepo = document.querySelector("#daftar-repos")
+const daftarRepo = document.querySelector("#daftar-repo")
 const statusRepo = document.querySelector("#status-repo")
 
 async function ambilRepo() {
     statusRepo.textContent = "Memuat...";
-
-try{
-    if(!response.ok){
-        throw new Error(`Status ${response.status}`)
-    }
+    try {
     const response = await fetch(alamatRepo + pilihan);
+        if (!response.ok) {
+        throw new Error(`Status ${response.status}`);
+        }
     const repos = await response.json();
-
     repos.forEach((repo) => {
         const item = document.createElement("li");
         const tautan = document.createElement("a");
@@ -232,10 +231,13 @@ try{
         item.appendChild(tautan);
         daftarRepo.appendChild(item);
     });
-    statusRepo.textContent = `${repos.length} repositori yang terakhir
-    diperbarui:`;
-} catch(error){
-    statusRepo.textContent = "Maaf, daftar repositori gagal dimuat. Periksa username atau coba lagi nanti";
-    console.error(error)
+    statusRepo.textContent = `${repos.length} repositori yang terakhir diperbarui:`;
+    } catch (error) {
+    statusRepo.textContent = "Maaf, daftar repositori gagal dimuat. Periksa username atau coba lagi nanti.";
+    console.error(error);
 }
+}
+
+if(daftarRepo){
+    ambilRepo();
 }
