@@ -10,13 +10,6 @@ const nilaiPlus5 = nilai.map((n) => n + 5);
 const lulus = nilai.filter((n) => n >= 75 );
 console.log(lulus);
 
-const skills = [
-    {nama: "HTML", level: "Menengah"},
-    {nama: "CSS", level: "Menengah"},
-    {nama: "Git dan Github", level: "Dasar"},
-    {nama: "Desain poster dengan canva", level: "Mahir"},
-];
-skills.push({ nama: "JavaScript", level: "Dasar" });
 
 
 
@@ -48,38 +41,7 @@ const filter_Nilai = nilai_murid.filter((nilaiIndividu) => nilaiIndividu > 80);
 
 console.log(filter_Nilai)
 
-// soal 5
-console.log(skills.map((skill) => skill.level));
 
-console.log("Hasilnya berupa penunjukkan nilai data level")
-
-
-// bagian 2 pembelajaran
-const heroH2 = document.querySelector(".hero h2");
-if(heroH2){
-document.querySelector(".hero h2").textContent = "Halo saya Razka Wakhidiansyah";
-}
-
-const heroP = document.querySelector(".hero p");
-if(heroP){
-document.querySelector(".hero p").innerHTML = "Siswa <strong>Kelas industri UBIG</strong>";
-}
-
-// createelemen
-
-const daftarSkill = document.querySelector("#daftar-skill");
-const jumlahSkill = document.querySelector("#jumlah-skill");
-const daftarhobi = document.querySelector("#daftar-hobi")
-
-if(daftarSkill){
-skills.forEach((skill) => {
-const item = document.createElement("li");
-item.textContent = `${skill.nama} (${skill.level})`;
-daftarSkill.appendChild(item);
-});
-jumlahSkill.textContent = `Ada ${skills.length} keahlian yang sedang
-saya kembangkan.`;
-}
 
 // tugas 2
 // soal 1
@@ -94,6 +56,7 @@ console.log("textContent adalah properti javascript yang digunakan untuk menguba
 
 // soal 4
 const gitar = document.createElement("li")
+const daftarhobi = document.querySelector("#daftar-hobi")
 if(daftarhobi){
 gitar.textContent = "Bermain gitar"
 daftarhobi.appendChild(gitar)
@@ -101,6 +64,51 @@ daftarhobi.appendChild(gitar)
 
 // soal 5
 console.log("Dikarenakan tag induk yang digunakan untuk menampung elemen baru yang dibuat tidak dapat ditemukan oleh javascript ketika menggunakan metode appendchild")
+
+// bagian 2 pembelajaran
+const heroH2 = document.querySelector(".hero h2");
+if(heroH2){
+document.querySelector(".hero h2").textContent = "Halo saya Razka Wakhidiansyah";
+}
+
+const heroP = document.querySelector(".hero p");
+if(heroP){
+document.querySelector(".hero p").innerHTML = "Siswa <strong>Kelas industri UBIG</strong>";
+}
+
+
+
+
+// createelemen
+
+const daftarSkill = document.querySelector("#daftar-skill");
+const jumlahSkill = document.querySelector("#jumlah-skill");
+
+async function pengambilanSkill(){
+    try{
+        const response = await fetch("data/keahlian.json")
+        if(!response.ok){
+            throw new Error(`${response.status}`)
+        }
+
+        const skills = await response.json();
+
+        skills.forEach(skill => {
+            const item = document.createElement("li")
+            item.textContent = `${skill.nama} ${skill.level}`;
+            daftarSkill.appendChild(item)
+    });
+
+    jumlahSkill.textContent = `Ada ${skills.length} yang sedang saya dikembangkan`
+} catch (error){
+    jumlahSkill.textContent = "Daftar keahlian gagal dimuat"
+    console.error(error)
+}
+}
+
+if(daftarSkill){
+    pengambilanSkill();
+}
 
 
 const tombolTema = document.querySelector("#tombol-tema");
@@ -126,73 +134,33 @@ if(kotakPesan) {
 
 
 
-const proyek = [
-{
-judul: "Halaman Profil Pertama",
-kategori: "HTML",
-gambar: "img/proyek-profil.png",
-alt: "Tangkapan layar halaman profil Andi Pratama",
-deskripsi: "Halaman web pertama saya, dibuat dengan HTMLdasar.",
-},
-{
-judul: "Form Kontak",
-kategori: "HTML",
-gambar: "img/proyek-kontak.png",
-alt: "Tangkapan layar form kontak berisi lima isian",
-deskripsi: "Form dengan label dan validasi bawaan browser.",
-},
-{
-judul: "Tabel Jadwal Belajar",
-kategori: "HTML",
-gambar: "img/proyek-jadwal.png",
-alt: "Tangkapan layar tabel jadwal belajar mandiri",
-deskripsi: "Jadwal belajar mingguan dengan thead dan tbody.",
-},
-{
-judul: "Portofolio Responsif",
-kategori: "CSS",
-gambar: "img/proyek-responsif.png",
-alt: "Tangkapan layar portofolio di ponsel dan laptop",
-deskripsi: "Rapi di ponsel, tablet, dan laptop dengan Flexbox.",
-},
-{
-judul: "Kalkulator Nilai Rapor",
-kategori: "JavaScript",
-gambar: "img/proyek-kalkulator.png",
-alt: "Tangkapan layar hasil kalkulator nilai di Console",
-deskripsi: "Rata-rata dan predikat nilai dengan fungsiJavaScript.",
-},
-{
-judul: "Lima Soal Logika",
-kategori: "JavaScript",
-gambar: "img/proyek-logika.png",
-alt: "Tangkapan layar hasil uji lima soal logika",
-deskripsi: "Lima fungsi logika yang masing-masing diuji 3masukan.",
-},
-];
-
 const daftarProyek = document.querySelector("#daftar-proyek");
 const jumlahProyek = document.querySelector("#jumlah-proyek");
+
+let proyek = [];
+
+
+
 function buatKartu(item) {
-return `
-<article class="kartu">
-<span class="label">${item.kategori}</span>
-<h3>${item.judul}</h3>
-<img src="${item.gambar}" alt="${item.alt}" width="280">
+    return `
+    <article class="kartu">
+    <span class="label">${item.kategori}</span>
+    <h3>${item.judul}</h3>
+    <img src="${item.gambar}" alt="${item.alt}" width="280">
 <p>${item.deskripsi}</p>
 </article>`;
 }
 
 
-function tampilkanProyek(daftar) {
-const semuaKartu = daftar.map((item) => buatKartu(item));
-daftarProyek.innerHTML = semuaKartu.join("");
-jumlahProyek.textContent = `Menampilkan ${daftar.length} dari ${proyek.length} proyek`;
+function tampilkanProyek (daftar) {
+    const semuaKartu = daftar.map((item) => buatKartu(item));
+    daftarProyek.innerHTML = semuaKartu.join("");
+    jumlahProyek.textContent = `Menampilkan ${daftar.length} dari ${proyek.length} proyek`;
 }
 
 function pasangFilter(idTombol, kategori) {
     const tombol = document.querySelector(idTombol);
-
+    
     tombol.addEventListener("click", () => {
         if (kategori === "Semua") {
             tampilkanProyek(proyek);
@@ -203,12 +171,29 @@ function pasangFilter(idTombol, kategori) {
         }
     });
 }
+
+async function muatProyek() {
+    try{
+        jumlahProyek.textContent = "Memuat...."
+        const menunggu = await fetch ("data/proyek.json")
+        if(!menunggu.ok){
+            throw new Error (`${menunggu.status}`)
+        }
+        proyek = await menunggu.json();
+        tampilkanProyek(proyek)
+
+    } catch(error){
+        jumlahProyek.textContent = "Gagal memuat data proyek"
+    }
+    
+}
 if (daftarProyek) {
-tampilkanProyek(proyek);
-pasangFilter("#filter-semua", "Semua");
-pasangFilter("#filter-javascript", "JavaScript");
-pasangFilter("#filter-html", "HTML")
-pasangFilter("#filter-css", "CSS")
+    tampilkanProyek(proyek);
+    muatProyek();
+    pasangFilter("#filter-semua", "Semua");
+    pasangFilter("#filter-javascript", "JavaScript");
+    pasangFilter("#filter-html", "HTML")
+    pasangFilter("#filter-css", "CSS")
 }
 
 const tombolfilteraktif = document.querySelectorAll(".tombol-filter.active")
@@ -218,3 +203,39 @@ tombolfilteraktif.forEach(tombol => {
         tombol.classList.toggle("active")
     });
 });
+
+
+// 5
+const username = "Razkarpl";
+const alamatRepo = `https://api.github.com/users/${username}/repos`;
+const pilihan = "?sort=updated&per_page=6";
+
+const daftarRepo = document.querySelector("#daftar-repos")
+const statusRepo = document.querySelector("#status-repo")
+
+async function ambilRepo() {
+    statusRepo.textContent = "Memuat...";
+
+try{
+    if(!response.ok){
+        throw new Error(`Status ${response.status}`)
+    }
+    const response = await fetch(alamatRepo + pilihan);
+    const repos = await response.json();
+
+    repos.forEach((repo) => {
+        const item = document.createElement("li");
+        const tautan = document.createElement("a");
+        tautan.href = repo.html_url;
+        tautan.target = "_blank";
+        tautan.textContent = repo.name;
+        item.appendChild(tautan);
+        daftarRepo.appendChild(item);
+    });
+    statusRepo.textContent = `${repos.length} repositori yang terakhir
+    diperbarui:`;
+} catch(error){
+    statusRepo.textContent = "Maaf, daftar repositori gagal dimuat. Periksa username atau coba lagi nanti";
+    console.error(error)
+}
+}
