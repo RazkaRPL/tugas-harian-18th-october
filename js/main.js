@@ -153,6 +153,7 @@ const pilihan = "?sort=updated&per_page=6";
 
 const daftarRepo = document.querySelector("#daftar-repo")
 const statusRepo = document.querySelector("#status-repo")
+const tombolRepo = document.querySelector("#tombol-repo")
 
 async function ambilRepo() {
     statusRepo.textContent = "Memuat...";
@@ -180,4 +181,14 @@ async function ambilRepo() {
 
 if(daftarRepo){
     ambilRepo();
+}
+
+tombolRepo.addEventListener("click", function(){
+    daftarRepo.classList.toggle("tersembunyikan")
+    statusRepo.classList.toggle("tersembunyikan")
+});
+
+if(statusRepo.classList.contains("tersembunyikan")){
+    statusRepo.textContent = "Daftar repositori tersembunyikan"
+    tombolRepo.textContent = "Tampilkan repositori"
 }

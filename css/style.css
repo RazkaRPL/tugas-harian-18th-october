@@ -325,3 +325,15 @@ font-weight: 600;
   background-color: #E63946;
   color: #FFFFFF;
 }
+
+.repo-daftar.gone{
+  display: none;
+}
+
+.tombol-kecil{
+  white-space: nowrap;
+}
+
+#daftar-repo.tersembunyikan{
+  display: none;
+}
