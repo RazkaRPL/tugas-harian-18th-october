@@ -1,6 +1,6 @@
 # Portofolio Razka Wakhidiansyah
 Website portofolio pribadi yang saya buat di Kelas Industri UBIG 
-(Paket 1, Minggu 01 sampai 05).
+(Paket 1, Minggu 01 sampai 09).
 Website ini tampil rapi di ponsel, tablet, dan laptop.
 ## Tampilan
 ![Tampilan beranda portofolio](img/proyek-profile.png)
