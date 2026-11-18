@@ -86,7 +86,7 @@ function buatKartu(item) {
     <article class="kartu">
     <span class="label">${item.kategori}</span>
     <h3>${item.judul}</h3>
-    <img src="${item.gambar}" alt="${item.alt}" width="280">
+    <img src="${item.gambar}" alt="${item.alt}" width="200" height="200">
 <p>${item.deskripsi}</p>
 </article>`;
 }
@@ -183,12 +183,16 @@ if(daftarRepo){
     ambilRepo();
 }
 
+if(daftarRepo){
+
 tombolRepo.addEventListener("click", function(){
     daftarRepo.classList.toggle("tersembunyikan")
     statusRepo.classList.toggle("tersembunyikan")
+    if(statusRepo.classList.contains("tersembunyikan")){
+        statusRepo.textContent = "Daftar repositori tersembunyikan"
+        tombolRepo.textContent = "Tampilkan repositori"
+    }else{tombolRepo.textContent = "Sembunyikan Repositori"}
 });
-
-if(statusRepo.classList.contains("tersembunyikan")){
-    statusRepo.textContent = "Daftar repositori tersembunyikan"
-    tombolRepo.textContent = "Tampilkan repositori"
 }
+
+
