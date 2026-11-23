@@ -188,10 +188,12 @@ if(daftarRepo){
 tombolRepo.addEventListener("click", function(){
     daftarRepo.classList.toggle("tersembunyikan")
     statusRepo.classList.toggle("tersembunyikan")
-    if(statusRepo.classList.contains("tersembunyikan")){
+    if(daftarRepo.classList.contains("tersembunyikan")){
         statusRepo.textContent = "Daftar repositori tersembunyikan"
         tombolRepo.textContent = "Tampilkan repositori"
-    }else{tombolRepo.textContent = "Sembunyikan Repositori"}
+    }else{tombolRepo.textContent = "Sembunyikan Repositori"
+        statusRepo.textContent = "6 repositori yang terakhir diperbarui:"
+    }
 });
 }
 
