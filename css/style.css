@@ -83,12 +83,14 @@ header h1 {
 }
 
 .navbar {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: 0.5rem;
 }
+
 
 nav ul {
   display: flex;
@@ -128,9 +130,18 @@ font-size: 0.9rem;
 }
 
 .menu-ponsel ul {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  background-color: var(--warna-utama);
+  padding: 0.5rem 1rem 1rem;
   flex-direction: column;
   margin-top: 0.5rem;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
+
 
 /* 4. Isi utama, hero, dan kartu */
 main {
@@ -149,6 +160,8 @@ main {
 .hero img {
   border: 4px solid #E63946;
   border-radius: 50%;
+  width: 180px;
+  height: 170px;
 }
 
 .hero h2 {
@@ -172,6 +185,11 @@ main {
   border: 1px solid #DDDDDD;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.kartuskill{
+  min-width: 180px;
+  min-height: 170px;
 }
 
 .daftar-kartu {
@@ -339,7 +357,22 @@ font-weight: 600;
   display: none;
 }
 
-.hero img{
-  width: 180px;
-  height: 170px;
+/* 1. Samakan ukuran font cadangan dengan Inter agar tidak bergeser saat swap */
+@font-face {
+  font-family: "Inter-Fallback";
+  src: local("Arial");
+  size-adjust: 107%;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
+/* 2. Samakan ukuran font cadangan dengan Poppins agar judul tidak bergeser saat swap */
+@font-face {
+  font-family: "Poppins-Fallback";
+  src: local("Arial");
+  size-adjust: 112%;
+  ascent-override: 93%;
+  descent-override: 30%;
+  line-gap-override: 0%;
 }
